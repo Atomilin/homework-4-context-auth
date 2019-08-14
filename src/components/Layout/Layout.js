@@ -5,10 +5,20 @@ import './Layout.css';
 class Layout extends PureComponent {
   render() {
     const { header, footer, children } = this.props;
+    
+    let classMain = '';
+    if (header) {
+      classMain += ` main--with-header`
+    }
+
+    if (footer) {
+      classMain += ` main--with-footer`
+    }
+
     return (
       <React.Fragment>
         { header && this.renderHeader(header) }
-        <main className="main main--with-header main--with-footer">
+        <main className={'main' + classMain}>
           <div className="main__title section-title">Main</div>
           { children }
         </main>
